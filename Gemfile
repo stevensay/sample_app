@@ -1,14 +1,20 @@
 source 'https://rubygems.org'
-
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: [:development, :test]
-gem 'rspec-rails', group: [:development, :test]
-gem 'selenium-webdriver', group: :test
-gem 'capybara', group: :test
+group :development, :test do
+  gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+end
+
+group :test do
+  gem 'selenium-webdriver'
+  gem 'capybara'
+end
 
 # Use PostgreSQL and static assets gems in production for deployment to Heroku
 group :production do
